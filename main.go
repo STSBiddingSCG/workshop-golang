@@ -36,6 +36,11 @@ func main() {
 			"message": "pong",
 		})
 	})
-	r.Run()
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080" // Default port if not specified
+	}
+	r.Run(":" + port)
 	
 }
